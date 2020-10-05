@@ -1,0 +1,86 @@
+import java.util.*;
+class deletearray1
+{
+	Scanner x=new Scanner(System.in);
+	int arr[];
+	int l;
+	deletearray1(int n)
+		{
+		arr=new int[n];
+		l=0;
+		}
+
+		void getdata()
+		{
+			System.out.println("Enter the elements of the original array.");
+			for(int i=0;i<arr.length;i++)
+			{
+				arr[i]=x.nextInt();
+			}
+		}
+		void getdata1()
+		{
+			System.out.println("Enter the position where the element is to be deleted in the array.");
+			l=x.nextInt();
+		}
+		void deletefirst()
+		{
+			for(int i=0;i<arr.length-1;i++)
+			{
+				arr[i]=arr[i+1];
+			}
+			arr[arr.length-1]=0;
+		}
+		void deletelast()
+		{
+			arr[arr.length-1]=0;
+		}
+		void deletespecific()
+		{
+			for(int i=l-1;i<arr.length-1;i++)
+			{
+				arr[i]=arr[i+1];
+			}
+			arr[arr.length-1]=0;
+		}
+		void display()
+		{
+			System.out.println("New array:");
+			for(int i=0;i<arr.length-1;i++)
+			{
+				System.out.println(arr[i]);
+			}
+		}
+
+}
+class deletearray
+{
+public static void main(String args[])
+{
+Scanner x=new Scanner(System.in);
+System.out.println("Enter the size of the original array.");
+int n=x.nextInt();
+deletearray1 obj=new deletearray1(n);
+System.out.println("To delete first press 1, for last press 2 and to delete at desired location press 3.");
+int c=x.nextInt();
+if(c==1)
+{
+obj.getdata();
+obj.deletefirst();
+obj.display();
+}
+if(c==2)
+{
+obj.getdata();
+obj.deletelast();
+obj.display();
+}
+if(c==3)
+{
+obj.getdata();
+obj.getdata1();
+obj.deletespecific();
+obj.display();
+}
+}
+}
